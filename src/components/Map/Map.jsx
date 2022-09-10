@@ -17,7 +17,6 @@ const Map = ({
   setBounds,
   coordinates,
   places,
-  setChildClicked,
   scrollToPlaceDetailsItem,
   whetherData,
 }) => {

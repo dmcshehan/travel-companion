@@ -12,11 +12,12 @@ const App = () => {
   const [filteredPlaces, setFilteredPlaces] = useState([]);
   const [coordinates, setCoordinates] = useState(null);
   const [bounds, setBounds] = useState(null);
-  const [childClicked, setChildClicked] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [elRefs, setElRefs] = useState([]);
   const [type, setType] = useState("restaurants");
   const [rating, setRating] = useState("");
+
+  console.log({ places });
 
   useEffect(() => {
     if (places.length !== 0) {
@@ -26,7 +27,7 @@ const App = () => {
 
       setElRefs(refs);
     }
-  }, [places, elRefs]);
+  }, [places]);
 
   useEffect(() => {
     if (coordinates && bounds) {
@@ -62,14 +63,11 @@ const App = () => {
   }, [rating]);
 
   const scrollToPlaceDetailsItem = (index) => {
-    console.log("hello");
     elRefs[index].current.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
   };
-
-  console.log({ places, type });
 
   return (
     <>
@@ -84,7 +82,6 @@ const App = () => {
             setType={setType}
             elRefs={elRefs}
             places={filteredPlaces.length ? filteredPlaces : places}
-            childClicked={childClicked}
             isLoading={isLoading}
           />
         </Grid>
@@ -96,7 +93,6 @@ const App = () => {
             coordinates={coordinates}
             whetherData={whetherData}
             places={filteredPlaces.length ? filteredPlaces : places}
-            setChildClicked={setChildClicked}
           />
         </Grid>
       </Grid>

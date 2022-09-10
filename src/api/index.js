@@ -41,7 +41,6 @@ export const getWeatherData = async ({ lat, lng }) => {
         "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
       },
     });
-    console.log(data);
 
     return data;
   } catch (error) {
