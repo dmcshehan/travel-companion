@@ -17,8 +17,6 @@ const App = () => {
   const [type, setType] = useState("restaurants");
   const [rating, setRating] = useState("");
 
-  console.log({ places });
-
   useEffect(() => {
     if (places.length !== 0) {
       const refs = Array(places.length)
